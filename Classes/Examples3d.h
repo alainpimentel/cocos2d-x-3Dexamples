@@ -9,6 +9,7 @@
 #define EXAMPLES3D_H_
 
 #include "cocos2d.h"
+#include <vector>
 
 using namespace cocos2d;
 
@@ -18,6 +19,26 @@ private:
 	//============================ Others ===================================
 	Size visibleSize;
 	Vec2 origin;
+	//========================= Sprite3D =========================
+	Sprite3D *sprite;
+	Sprite3D* orc;
+	Sprite3D* turtle;
+	Sprite3D* woman;
+	//========================= Menu Items =========================
+	LabelTTF *lbl_sprite;
+	LabelTTF *lbl_animation;
+	LabelTTF *lbl_light_ambient;
+	LabelTTF *lbl_light_directional;
+	LabelTTF *lbl_light_point;
+	LabelTTF *lbl_light_spot;
+
+	std::vector<int> labels_bits;
+	void createMenu();
+
+    //====================== SingleTouchEvents =============================
+    bool onTouchBegan(Touch *touch, Event *unused_event);
+    void onTouchMoved(Touch *touch, Event *unused_event);
+	void onTouchEnded(Touch *touch, Event *unused_event);
 public:
     // There's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
